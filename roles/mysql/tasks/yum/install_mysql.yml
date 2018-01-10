@@ -1,0 +1,21 @@
+---
+- name: Install MySQL
+  yum:
+    package: '{{ item }}'
+    state: installed
+    update_cache: true
+  with_items:
+    - mysql-community-server
+    - MySQL-python
+  become: true
+
+- name: Secures the MySQL root user
+  mysql_user:
+    user: root
+    password: '{{ mysql_root_password }}'
+    host: '{{ item }}'
+  with_items:
+    - 127.0.0.1
+    - localhost
+    - ::1
+    - "{{ ansible_fqdn }}"

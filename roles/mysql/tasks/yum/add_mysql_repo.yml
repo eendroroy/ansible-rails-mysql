@@ -1,0 +1,6 @@
+---
+- name: Add mysql repo {{ ansible_os_family }}
+  template:
+    src: mysql-community.repo.j2
+    dest: /etc/yum.repos.d/mysql-community.repo
+  become: true

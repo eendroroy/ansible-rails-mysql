@@ -1,0 +1,9 @@
+---
+- name: Install library
+  yum:
+    package: '{{ item }}'
+    state: installed
+    update_cache: true
+  with_items:
+    - libmysqlclient-dev
+  become: true
