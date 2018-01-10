@@ -1,0 +1,4 @@
+app_env: staging
+
+mysql_user: StagingUser
+mysql_user_password: staging_pass

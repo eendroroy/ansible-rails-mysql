@@ -1,0 +1,4 @@
+app_env: vagrant
+
+mysql_user: VagrantUser
+mysql_user_password: vagrant_pass

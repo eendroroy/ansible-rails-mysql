@@ -1,0 +1,4 @@
+app_env: production
+
+mysql_user: ProductionUser
+mysql_user_password: production_pass
