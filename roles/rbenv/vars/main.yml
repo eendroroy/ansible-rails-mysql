@@ -1,0 +1,7 @@
+---
+rbenv_url: https://github.com/rbenv/rbenv.git
+rbenv_path: '/usr/local/rbenv'
+ruby_build_url: https://github.com/rbenv/ruby-build.git
+ruby_build_path: '{{ rbenv_path }}/plugins/ruby-build'
+rbenv_default_gems_url: https://github.com/rbenv/rbenv-default-gems.git
+rbenv_default_gems_path: '{{ rbenv_path }}/plugins/rbenv-default-gems'
