@@ -17,8 +17,8 @@
     raw: yum -y update
     become: true
 
-  - name: Upgrade packages
-    raw: yum -y upgrade
+  - name: Install deps
+    raw: yum install -y python2
     become: true
 
   - name: Cleanup yum
@@ -32,11 +32,7 @@
     raw: apt-get -y update
     become: true
 
-  - name: Upgrade apt packages
-    raw: apt-get -y upgrade
-    become: true
-
-  - name: Upgrade apt packages
+  - name: Install deps
     raw: apt-get install -y python-simplejson
     become: true
 
