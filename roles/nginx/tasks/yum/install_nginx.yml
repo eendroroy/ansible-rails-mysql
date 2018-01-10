@@ -1,0 +1,9 @@
+---
+- name: Install nginx {{ ansible_os_family }}
+  yum:
+    name: '{{ item }}'
+    state: installed
+    update_cache: yes
+  with_items:
+    - nginx
+  become: true
