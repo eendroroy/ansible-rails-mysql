@@ -1,0 +1,52 @@
+---
+- name: Create deployment user
+  user:
+    name: '{{ deploy_user }}'
+    comment: "Application deployment user"
+  become: true
+
+- name: Current user
+  raw: echo -ne "`whoami`"
+  register: user
+  ignore_errors: yes
+
+- debug:
+    var: user.stdout
+
+- name: Update user permissions
+  template:
+    src: templates/deployer.j2
+    dest: /etc/sudoers.d/deployer
+    owner: root
+    group: root
+    mode: 0440
+  become: true
+
+- name: Create .ssh folder
+  file:
+    path: '/home/{{ deploy_user }}/.ssh'
+    state: directory
+    group: '{{ deploy_user }}'
+    owner: '{{ deploy_user }}'
+  become: true
+
+- name: "Update {{ deploy_user }}'s allowed keys"
+  copy:
+    remote_src: true
+    src: /home/{{ user.stdout }}/.ssh/authorized_keys
+    dest: /home/{{ deploy_user }}/.ssh/authorized_keys
+    group: '{{ deploy_user }}'
+    owner: '{{ deploy_user }}'
+  become: true
+
+- include_tasks: yum/install_node.yml
+  when: ansible_os_family == 'RedHat'
+
+- include_tasks: apt/install_node.yml
+  when: ansible_os_family == 'Debian'
+
+- include_tasks: yum/install_deps.yml
+  when: ansible_os_family == 'RedHat'
+
+- include_tasks: apt/install_deps.yml
+  when: ansible_os_family == 'Debian'
