@@ -5,13 +5,17 @@
     state: installed
     update_cache: yes
   with_items:
+    - build-essential
     - git
     - gcc
     - bzip2
+    - libcurl4-openssl-dev
     - libssl-dev
     - libyaml-dev
     - libffi-dev
     - libreadline-dev
+    - libxml2-dev
+    - libxslt1-dev
     - zlib1g-dev
     - libgdbm-dev
     - ncurses-dev

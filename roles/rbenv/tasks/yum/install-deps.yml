@@ -5,14 +5,25 @@
     state: installed
     update_cache: yes
   with_items:
+    - autoconf
+    - automake
+    - bison
+    - curl
     - git
     - gcc
+    - gcc-c++
     - bzip2
+    - gdbm-devel
     - openssl-devel
     - libyaml
     - libffi-devel
-    - readline-devel
-    - zlib-devel
-    - gdbm-devel
+    - libtool
+    - make
+    - patch
     - ncurses-devel
+    - readline
+    - readline-devel
+    - sqlite-devel
+    - zlib
+    - zlib-devel
   become: true
