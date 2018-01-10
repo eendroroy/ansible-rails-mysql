@@ -19,7 +19,7 @@ Works on Debian and RedHat os family.
 Tested on `Ubuntu 16.04`, `CentOS 7`, and `RedHat 7`
 
 - System wide `rbenv` installation with ruby 2.5.0 and bundler gem
-- PostgreSQL 10 with environment specific (staging or production) database and user with default configuration
+- MySQL with environment specific (staging or production) database and user with default configuration
 - Nginx with minimal configuration (application specific configurations should be uploaded during rails application deployment).
   See [puma-deploy](https://github.com/eendroroy/puma-deploy)
 - Some common dependencies required for rails applications
