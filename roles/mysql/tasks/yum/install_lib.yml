@@ -1,9 +1,9 @@
 ---
-- name: Install library {{ ansible_os_family }}
-  yum:
-    package: '{{ item }}'
-    state: installed
-    update_cache: true
-  with_items:
-    - libmysqlclient-dev
-  become: true
+# - name: Install library {{ ansible_os_family }}
+#   yum:
+#     package: '{{ item }}'
+#     state: installed
+#     update_cache: true
+#   with_items:
+#     - libmysqlclient-dev
+#   become: true

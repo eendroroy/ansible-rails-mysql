@@ -1,5 +1,18 @@
 ---
-- name: Add mysql repo {{ ansible_os_family }}
+- name: Download MySQL repository for {{ ansible_os_family }}
+  get_url:
+    url: https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+    dest: /tmp/mysql57-community-release-el7-11.noarch.rpm
+
+- name: Install MySQL repository for {{ ansible_os_family }}
+  yum:
+    name: '{{ item }}'
+    state: installed
+  become: true
+  with_items:
+    - /tmp/mysql57-community-release-el7-11.noarch.rpm
+
+- name: Add MySQL repo {{ ansible_os_family }}
   template:
     src: mysql-community.repo.j2
     dest: /etc/yum.repos.d/mysql-community.repo
