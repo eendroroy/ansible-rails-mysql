@@ -1,5 +1,5 @@
 ---
-- name: Set MySQL root password before installing
+- name: Set MySQL root password before installing {{ ansible_os_family }}
   debconf:
     name: mysql-server
     question: 'mysql-server/root_password'
@@ -7,7 +7,7 @@
     vtype: password
   become: true
 
-- name: Confirm MySQL root password before installing
+- name: Confirm MySQL root password before installing {{ ansible_os_family }}
   debconf:
     name: mysql-server
     question: 'mysql-server/root_password_again'
@@ -15,7 +15,7 @@
     vtype: password
   become: true
 
-- name: Install MySQL
+- name: Install MySQL {{ ansible_os_family }}
   apt:
     package: '{{ item }}'
     state: installed
@@ -28,7 +28,7 @@
     - python-mysqldb
   become: true
 
-- name: Secures the MySQL root user
+- name: Secures the MySQL root user {{ ansible_os_family }}
   mysql_user:
     user: root
     password: '{{ mysql_root_password }}'

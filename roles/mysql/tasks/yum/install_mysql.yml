@@ -1,5 +1,5 @@
 ---
-- name: Install MySQL
+- name: Install MySQL {{ ansible_os_family }}
   yum:
     package: '{{ item }}'
     state: installed
@@ -9,7 +9,7 @@
     - MySQL-python
   become: true
 
-- name: Secures the MySQL root user
+- name: Secures the MySQL root user {{ ansible_os_family }}
   mysql_user:
     user: root
     password: '{{ mysql_root_password }}'

@@ -1,5 +1,5 @@
 ---
-- name: Install library
+- name: Install library {{ ansible_os_family }}
   apt:
     package: '{{ item }}'
     state: installed
