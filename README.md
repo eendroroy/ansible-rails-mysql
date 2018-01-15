@@ -9,7 +9,7 @@
 [![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/eendroroy/ansible-rails-mysql.svg)](https://github.com/eendroroy/ansible-rails-mysql/pulls?q=is%3Apr+is%3Aclosed)
 
 Setup environment for deploying rails application on a `Debian` or `RPM based` os
-(`Debian`, `Ubuntu`, `RHEL`, `CentOS`, `Fedora`).
+(`Debian`, `Ubuntu`, `RHEL 7+`, `CentOS 7+`, `Fedora`).
 Base repo needs to be enabled using `subscription-manager` on `RHEL`.
 
 ## Description
