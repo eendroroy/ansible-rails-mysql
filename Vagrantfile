@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "bootstrap", type: "shell" do |s|
     s.inline = "echo 'bootstrap provisioner'"
-    s.inline = "sudo service networking restart || sudo service network restart"
+    s.inline = "sudo service networking restart 2>/dev/null || sudo service network restart 2>/dev/null"
   end
 
   config.vm.define 'xenial' do |xenial|
